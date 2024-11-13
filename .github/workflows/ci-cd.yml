@@ -1,0 +1,38 @@
+name: Python CI/CD
+
+on: [push, pull_request]
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'  # Specify the Python version you want to use
+
+    - name: Install dependencies
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+        pip install pytest
+
+    - name: Run tests
+      run: |
+        pytest  # Assuming you are using pytest for testing
+
+    # - name: Build and deploy
+    #   run: |
+    #     # Add your deployment steps here
+    #     echo "Deploying application..."
