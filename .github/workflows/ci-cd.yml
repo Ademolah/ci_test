@@ -30,7 +30,7 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest  # Assuming you are using pytest for testing
+        pytest  
 
     # - name: Build and deploy
     #   run: |
